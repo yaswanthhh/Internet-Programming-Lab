@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css">
+		.hero {
+			height: auto;
+		}
+		form {
+            background-color: floralwhite;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        /* Styling form-control Class */
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+ 
+        /* Styling form-control Label */
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        /* Styling form-control input,
+        select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+ 
+        /* Styling form-control Radio
+        button and Checkbox */
+        .form-control input[type="radio"],
+        .form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        /* Styling Button */
+        button {
+            background-color: #9575CD;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+        	background-color: darkmagenta;
+        }
+        #clock {
+            color: aliceblue;
+            text-decoration: none;
+            border: 2px solid transparent;
+            font-weight: bold;   
+            background-color: #f9004d;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 120px;
+            right: 0%;
+            margin-right: 30px;
+            border-radius: 20px;
+        }
+        .draglist {
+            border: 1px solid black;
+            border-radius: 20px;
+            width: fit-content;
+            padding: 10px;
+            margin: 2px;
+        }
+	</style>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+  	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+ 	<script src="https://kit.fontawesome.com/67c66657c7"></script>
+    <script src="./js/script.js"></script>
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body onload="startTime()">
+	<!----hero Section start---->
+
+	<div class="hero">
+		<nav>
+			<a href="index.html"><h2 class="logo">Yasw<span>anth</span></h2></a>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="personalinformation.html">Personal Information</a></li>
+				<li><a href="journey.html">My Journey to SSN</a></li>
+				<li><a href="areaOfInterest.html">Area of Interest</a></li>
+				<li><a href="proficiency.html">Academic Proficiency</a></li>
+				<li><a href="events.html">Events Organised</a></li>
+				<li><a href="feedback.html">Feedback</a></li>
+			</ul>
+            <a href="registration.html" class="btn">Register for Events</a>
+		</nav>
+		<div class="title">
+			<h2>Register For an Event</h2>
+		</div>
+		<div style="width: 100%;">
+			<form id="form" onsubmit="printTable()">
+                <!-- Details -->
+                <div class="form-control">
+                    <label for="name" id="label-name">
+                        Name
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="text"
+                        id="name" name="name"
+                        placeholder="Enter your name" onfocus="changeBGcolor(this)" onblur="resetStyle(this)" 
+                        oninvalid="match(this)" pattern="[A-Z\sa-z]*" required/>
+                </div>
+        
+                <div class="form-control">
+                    <label for="collegeName" id="label-clgname">
+                        College Name
+                    </label>
+        
+                    <!-- Input Type Email-->
+                    <input type="text"
+                        id="collegeName" name="college"
+                        placeholder="Enter your college's name" oninvalid="match(this)" pattern="[A-Z\sa-z]*" required/>
+                </div>
+        
+                <div class="form-control">
+                    <label for="collegeAddr" id="label-addr">
+                        College Address
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="text"
+                        id="collegeAddr" name="address"
+                        placeholder="Enter your college's address" onselect="func()" required/>
+                </div>
+        
+                <div class="form-control">
+                    <label for="pin" id="label-pin">
+                        Pin
+                    </label>
+                    
+                    <!-- Dropdown options -->
+                    <input type="text"
+                        id="pin" name="pin"
+                        placeholder="Enter your college's PIN" pattern="[0-9]{6}" required/>
+                </div>
+
+                <div class="form-control">
+                    <label for="age" id="label-age">
+                        Student's Age
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="text"
+                        id="age" name="age"
+                        placeholder="Enter your age" onkeypress="keyPress(this)" required/>
+                </div>
+
+                <div class="form-control">
+                    <label for="dob" id="label-date">
+                        Date of Birth
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="date"
+                        id="dob" name="dob" required/>
+                </div>
+        
+                <div class="form-control">
+                    <label for="recommend">
+                        Gender
+                    </label>
+        
+                    <!-- Input Type Radio Button -->
+                    <label for="recommend-1">
+                        <input type="radio"
+                            id="recommend-1"
+                            name="recommend" value="Non-Binary" required> Non-Binary</input>
+                    </label>
+                    <label for="recommend-2">
+                        <input type="radio"
+                            id="recommend-2"
+                            name="recommend" value="Female"> Female</input>
+                    </label>
+                    <label for="recommend-3">
+                        <input type="radio"
+                            id="recommend-3"
+                            name="recommend" value="Male"> Male</input>
+                    </label>
+                    <label for="recommend-4">
+                        <input type="radio"
+                            id="recommend-4"
+                            name="recommend" value="Others"> Others</input>
+                    </label>
+                </div>
+
+                <div class="form-control">
+                    <label for="dept" id="label-dept">
+                        Department
+                    </label>
+                    
+                    <!-- Dropdown options -->
+                    <select name="dept" id="dept" name="department" onchange="warn()" required>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="BME">BME</option>
+                        <option value="CHEM">CHEM</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="contact" id="label-contact">
+                        Contact number
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="text"
+                        id="contact" name="contact"
+                        placeholder="Enter your number"  pattern="[0-9]{10}" required />
+                </div>
+                <div class="form-control">
+                    <label for="email" id="label-email">
+                        E-Mail ID
+                    </label>
+        
+                    <!-- Input Type Text -->
+                    <input type="text"
+                        id="email" name="email"
+                        placeholder="Enter your Email-ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+                </div>
+                
+                <div class="form-control">
+                    <label for="prog">Programming skills:<br></label>
+                    <input type="text" name="prog" id="progskills" ondrop="drop(event)" ondragover="allowDrop(event)" /><br />
+                    <ul>
+                        <li class="draglist" ID="id1" draggable="true" ondragstart="drag(event)">Java</li>
+                        <li class="draglist" ID="id2" draggable="true" ondragstart="drag(event)">Python</li>
+                        <li class="draglist" ID="id3" draggable="true" ondragstart="drag(event)">C++</li>
+                        <li class="draglist" ID="id4" draggable="true" ondragstart="drag(event)">Go</li>
+                    </ul>
+                </div>
+
+                <div class="form-control">
+                    <label for="ch" id="label-hobbies">
+                        Hobbies
+                    </label>
+                    <label for="ch-1">
+                        <input type="checkbox"
+                            id="ch1"
+                            name="ch" value="Reading"> Reading</input>
+                    </label>
+                    <label for="ch-2">
+                        <input type="checkbox"
+                            id="ch-2"
+                            name="ch" value="Competitive Programming"> Competitive Programming</input>
+                    </label>
+                    <label for="ch-3">
+                        <input type="checkbox"
+                            id="ch-3"
+                            name="ch" value="Sports"> Sports</input>
+                    </label>
+                    <label for="ch-4">
+                        <input type="checkbox"
+                            id="ch-4"
+                            name="ch" value="Arts"> Arts</input>
+                    </label>
+                </div>
+
+                <div class="form-control">
+                    <label for="consent">
+                        Upload college's consent lettter
+                    </label>
+                    <input type="file" id="myFile" name="filename">
+                </div>  
+                <!-- Multi-line Text Input Control -->
+                <div class="container">
+                    <button type="submit" value="submit">
+                        Submit
+                    </button>
+                    <button type="reset" value="reset">
+                        Reset
+                    </button>
+                </div>
+            </form>
+		</div>
+        <div id="clock"> </div>
+    </div>
+    <footer>
+		<p>Yaswanth Udayakumar</p>
+		<p>My Social media has been given below</p>
+		<div class="social">
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="mailto:yaswanthudayakumar1@gmail.com"><i class="far fa-envolope" aria-hidden="true"></i></a>
+		</div>
+		<p class="end">CopyRight By Yaswanth Udayakumar</p>
+	</footer>
+</body>
+</html>
